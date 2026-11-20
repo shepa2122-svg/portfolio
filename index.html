@@ -152,6 +152,18 @@
     @media(max-width:850px){.cgrid{grid-template-columns:repeat(2,1fr)}.detail{grid-template-columns:1fr;gap:26px}.project.featured .project-art{height:260px}}
     @media(max-width:560px){.cgrid{grid-template-columns:1fr}.ov-body{padding-top:34px}.thumb{width:74px}}
 
+    /* ===== Плитки разделов каталога ===== */
+    .gtiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+    .gtile{display:block;width:100%;text-align:left;color:inherit;font:inherit;padding:0;cursor:pointer}
+    .gtile:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    .gimg{aspect-ratio:4/3;position:relative;overflow:hidden;background:linear-gradient(135deg,#252d34,#11161b)}
+    .gimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .4s}
+    .gimg:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,10,12,.35),transparent 55%);pointer-events:none}
+    .gtile:hover .gimg img{transform:scale(1.06);filter:brightness(1.08)}
+    .gtile:hover h3{color:var(--accent2)}
+    @media(max-width:850px){.gtiles{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.gtiles{grid-template-columns:1fr}}
+
     /* ===== Фото, опыт, образование ===== */
     .photo{position:relative;aspect-ratio:4/5;max-width:270px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:linear-gradient(145deg,#20262c,#101419);margin-bottom:22px}
     .photo img{width:100%;height:100%;object-fit:cover;display:block}
@@ -274,6 +286,34 @@
       .about-text,.job ul,.service p,.project p{font-size:18px}
       h2{font-size:clamp(48px,3vw,68px)}
     }
+
+    /* ===== Карточки каталога: подсветка и увеличение рендера ===== */
+    .cimg img{transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .4s}
+    .cimg:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(200,169,120,.28),transparent 65%);opacity:0;transition:opacity .4s;pointer-events:none}
+    .ccard:hover .cimg img,.ccard:focus-visible .cimg img{transform:scale(1.07);filter:brightness(1.1) saturate(1.06)}
+    .ccard:hover .cimg:after,.ccard:focus-visible .cimg:after{opacity:1}
+    .ccard:hover{box-shadow:0 18px 48px rgba(200,169,120,.14)}
+    .ccard .cinfo h3{transition:color .25s}
+    .ccard:hover .cinfo h3{color:var(--accent2)}
+    @media(prefers-reduced-motion:reduce){.cimg img,.ccard{transition:none}.ccard:hover{transform:none}.ccard:hover .cimg img{transform:none}}
+    /* кнопки документов на странице изделия */
+    .dbtns{display:grid;gap:12px;margin-top:26px}
+    .btn.big{width:100%;justify-content:space-between;padding:20px 26px;font-size:15px}
+    .btn.big small{font-weight:500;letter-spacing:.02em;opacity:.7;font-size:12px}
+    .btn.off{opacity:.4;pointer-events:none}
+
+    /* ===== Мебель: кнопки «Эскиз» и «Инструкция» под плиткой ===== */
+    .fcard{display:flex;flex-direction:column;cursor:default}
+    .fc-open{display:block;width:100%;text-align:left;background:none;border:0;padding:0;color:inherit;font:inherit;cursor:pointer}
+    .fc-open:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+    .fcard:hover .fc-open .cimg img{transform:scale(1.07);filter:brightness(1.1) saturate(1.06)}
+    .fcard:hover .fc-open .cimg:after{opacity:1}
+    .fcard:hover .cinfo h3{color:var(--accent2)}
+    .fc-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 20px 20px;margin-top:auto}
+    .mini{display:flex;align-items:center;justify-content:center;gap:7px;padding:11px 10px;border-radius:12px;font-size:13px;font-weight:700;letter-spacing:.03em;text-align:center;border:1px solid var(--line);color:#6f7a83;background:rgba(255,255,255,.02);user-select:none}
+    a.mini{border-color:rgba(200,169,120,.7);color:#1a1409;background:var(--accent);box-shadow:0 0 22px rgba(200,169,120,.22);cursor:pointer;transition:.2s}
+    a.mini:hover{background:var(--accent2);transform:translateY(-2px)}
+    .mini.off{opacity:.55;cursor:not-allowed;border-style:dashed}
     @media(max-width:850px){
       .navlinks{display:none;position:absolute;top:78px;left:0;right:0;background:#101419;padding:20px 24px 25px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
       .navlinks.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}
@@ -386,9 +426,9 @@
           <div class="project-art"><span class="art-tag">Play equipment</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p1" x2="1" y2="1"><stop stop-color="#65736e"/><stop offset="1" stop-color="#1b2828"/></linearGradient></defs><rect width="700" height="330" fill="url(#p1)"/><path d="M0 265L700 210V330H0Z" fill="#18201f"/><g fill="none" stroke="#d5bd91" stroke-width="5"><path d="M190 250V95H330V250M360 250V65H500V250M190 95L260 45L330 95M360 65L430 15L500 65"/><path d="M330 145H360M190 160H330M360 130H500"/><path d="M215 250L260 190L305 250M385 250L430 185L475 250"/></g><g stroke="#f1e2c5" stroke-width="2" opacity=".65"><path d="M260 45V250M430 15V250M190 190H330M360 180H500"/></g></svg></div>
           <div class="project-info"><div class="project-top"><div><h3>Игровое оборудование и МАФ</h3><p>Уличные детские площадки, закрытые игровые комплексы и малые архитектурные формы: рендеры, инструкции и конструкторская документация.</p><span class="cta-link">ОТКРЫТЬ КАТАЛОГ →</span></div><span class="project-num">01</span></div></div>
         </article>
-        <article class="project" data-category="furniture">
+        <article class="project clickable" data-category="furniture" data-open="catalog" data-group="furniture" tabindex="0" role="button" aria-label="Открыть каталог мебели">
           <div class="project-art"><span class="art-tag">Furniture</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p3" x2="1" y2="1"><stop stop-color="#4a4b4b"/><stop offset="1" stop-color="#171a1d"/></linearGradient></defs><rect width="700" height="330" fill="url(#p3)"/><path d="M0 260L700 235V330H0Z" fill="#16191c"/><g fill="#252d32" stroke="#c8a978" stroke-width="3"><rect x="200" y="50" width="300" height="205" rx="3"/><path d="M200 118H500M200 186H500M350 50V255" fill="none"/><path d="M215 255V275M485 255V275" fill="none"/></g><g stroke="#e7d9c2" stroke-width="2" opacity=".55" fill="none"><rect x="222" y="70" width="46" height="40"/><rect x="288" y="82" width="38" height="28"/><rect x="372" y="138" width="90" height="40"/><rect x="222" y="206" width="110" height="38"/><path d="M372 206H478M372 224H440"/></g></svg></div>
-          <div class="project-info"><div class="project-top"><div><h3>Мебель</h3><p>Корпусная мебель, мебель для конструкторов, интерьерные решения и элементы из дерева, массива и листовых материалов.</p></div><span class="project-num">02</span></div></div>
+          <div class="project-info"><div class="project-top"><div><h3>Мебель</h3><p>Корпусная мебель, мебель для конструкторов, интерьерные решения и элементы из дерева, массива и листовых материалов: рендеры, инструкции по сборке и документация.</p><span class="cta-link">ОТКРЫТЬ КАТАЛОГ →</span></div><span class="project-num">02</span></div></div>
         </article>
         <article class="project" data-category="visual">
           <div class="project-art"><span class="art-tag">3D / Visualization</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p4" x2="0" y2="1"><stop stop-color="#515a5d"/><stop offset="1" stop-color="#1a2024"/></linearGradient></defs><rect width="700" height="330" fill="url(#p4)"/><path d="M0 245L700 195V330H0Z" fill="#20272a"/><g fill="#303b3e" stroke="#d0b487" stroke-width="2"><path d="M120 190L330 95L555 170L340 270Z"/><path d="M120 190V220L340 300V270Z"/><path d="M340 270V300L555 200V170Z"/></g><g stroke="#eee0c8" stroke-width="2" opacity=".6"><path d="M330 95V210M220 145V230M445 132V220M120 190L340 270L555 170"/></g></svg></div>
@@ -538,10 +578,80 @@
   })();
 
   /* ===== ДАННЫЕ КАТАЛОГА — редактируй только этот массив =====
-     group: outdoor (уличные) | indoor (закрытые) | maf
+     group: outdoor (уличные) | indoor (закрытые) | maf | furniture (мебель)
      renders: картинки; manual: PDF инструкции; docs: файлы документации */
-  const GROUPS={outdoor:'Уличные',indoor:'Закрытые',maf:'МАФ'};
+  /* Пример мебели:
+     {id:'shkaf-01',group:'furniture',title:'Шкаф «Название»',desc:'Описание.',
+       renders:['assets/shkaf-01/render.jpg'],manual:'assets/shkaf-01/instruction.pdf',sketch:'assets/shkaf-01/sketch.pdf'},
+  */
+  const GROUPS={outdoor:'Уличные',indoor:'Закрытые',maf:'МАФ',furniture:'Мебель'};
+  /* Каталоги: какие группы (вкладки) входят в каждый. Вкладки показываются, если групп больше одной. */
+  const CATS={
+    play:{title:'Игровое оборудование и МАФ',groups:['outdoor','indoor','maf']},
+    furniture:{title:'Мебель',groups:['furniture']}
+  };
+  const catOf=g=>Object.values(CATS).find(c=>c.groups.includes(g))||CATS.play;
+  const GCOVER={indoor:'assets/СПАРТА/13/1.png',maf:'assets/shezlong-2165/render.jpg'};
+  const jr=(a,b)=>Array.from({length:b-a+1},(_,i)=>(a+i)+'.jpg');
+  const SPN=[
+    [1,'Темиртау · 430 м²',['1.png',...jr(2,6)]],
+    [2,'Маргарита · г. Киров',['1.png',...jr(2,7)]],
+    [3,'Никита · Липецк',['1.png',...jr(2,7),'12.jpg']],
+    [4,'Екатерина · ДИЦ, 250 м²',['1.png',...jr(2,8),'Размеры.jpg']],
+    [5,'Хачим · Парки Баксан',['1.png',...jr(2,9)]],
+    [6,'Евгения · Ростов-на-Дону',['1.png','2.jpg','3.jpg']],
+    [7,'Проект 7',['1.jpg','2.jpg','3.jpg','6.jpg','7.jpg']],
+    [8,'Надувные аттракционы · Уфа',['1.png',...jr(2,5)],'Надувные аттракционы.'],
+    [9,'РАППА · Парки Сургут',['1.jpg','2.jpg','3.jpg','5.jpg','6.jpg','7.jpg','Размеры в пом.jpg','раз.png']],
+    [10,'БТИ · Чайхона, 3 этаж',['1.png',...jr(2,4)]],
+    [11,'Валерия · Шадринск, игровая 250 м²',['1.jpg','2.jpg','2.png',...jr(3,8)]],
+    [12,'ДК г. Елань · Волгоград',jr(1,5)],
+    [13,'Кадырбек · Нижневартовск, ТЦ «Вегас», 1000 м²',['1.png',...jr(2,12)]],
+    [14,'Мария Домбровская · Парки Тверь, 300 м²',jr(1,4)],
+    [15,'Сигма Парк · Ижевск',['1.jpg','2.jpg',...jr(4,7)]],
+    [16,'Вологда · ЕС35.ру Парк, 320 м²',jr(1,8)],
+    [17,'Москва',['1.png',...jr(3,5)]],
+    [18,'Томск',['1.jpg',...jr(3,6)]]
+  ];
+  const INDOOR=SPN.map(([n,title,files,desc])=>({id:'sparta-'+n,group:'indoor',title,desc:desc||'Закрытый игровой комплекс.',renders:files.map(f=>'assets/СПАРТА/'+n+'/'+f),manual:'',docs:[]}));
+  const plural=n=>{const a=n%100,b=n%10;return n+' '+((a>10&&a<15)?'проектов':b===1?'проект':(b>1&&b<5)?'проекта':'проектов')};
+  const FURN=[
+    [1,'Высокий бежевый шкаф с тёмной ручкой','1.png','E'],
+    [2,'Минималистичный шкаф в бежевых тонах','1.png','E'],
+    [3,'Современный гардероб с мягкой прихожей','1.png','E'],
+    [4,'Современный гардероб','1.png','E'],
+    [5,'Современный встроенный шкаф с подсветкой','1.png','E'],
+    [6,'Современный гардероб с голубым ящиком','Современный гардероб с голубым ящиком.png','E'],
+    [7,'Гардеробная','1.bmp','E'],
+    [8,'Современная кухня с барной стойкой','Современная кухня с барной стойкой.png','E'],
+    [9,'Детская','1.bmp','E'],
+    [10,'Санузел','1.png','E'],
+    [11,'Бордовая гардеробная с тёплой подсветкой','1.png','E'],
+    [12,'Современная бежевая кухня в нише','Современная бежевая кухня в нише.png','E'],
+    [13,'Современная прачечная с бежевой мебелью','1.png','E'],
+    [14,'Кресло раскладное','1.png','E'],
+    [15,'Шкаф','1.png','E'],
+    [16,'Шкаф','1.png','E'],
+    [17,'Кресло','1.jpg','E'],
+    [18,'Тумба с раковиной','1.png','E'],
+    [19,'Шкафчик','1.png','E'],
+    [20,'Диван','1.jpg','E'],
+    [21,'Изделие 21','1.jpg','E'],
+    [22,'Изделие 22','1.jpg',''],
+    [23,'Изделие 23','1.jpg','E'],
+    [24,'Современный туалетный столик с зеркалом','1.png','E'],
+    [25,'Современная кухня в дубово-шалфейной гамме','Современная кухня в дубово-шалфейной гамме.png','E'],
+    [26,'Кровать','1.jpg','E'],
+    [27,'Компьютерный стол КСТ-08.1','1.jpg','I','Паспорт КСТ-08_1.pdf'],
+    [28,'Стол письменный СПМ-07','1.jpg','I','Паспорт СПм-07_1.pdf'],
+    [29,'Стол письменный СПМ-212','1.jpg','I','Паспорт СПм-212.pdf'],
+    [30,'Стол письменный СПМ-963','1.jpg','I','Паспорт СПм-963.pdf'],
+    [31,'Стол письменный СПМ-965','1.jpg','I','Паспорт СПм-965.pdf']
+  ];
+  const FURNITURE=FURN.map(([n,title,r,t,pass])=>{const d='assets/Мебель/'+n+'/';return {id:'mebel-'+n,group:'furniture',title,desc:'',renders:[d+r],sketch:t==='E'?d+'ESKIZ.pdf':'',manual:t==='I'?d+'INS.pdf':'',passport:pass?'assets/'+pass:'',docs:[]}});
   const PROJECTS=[
+    ...INDOOR,
+    ...FURNITURE,
     {id:'shezlong-2165',group:'maf',title:'Шезлонг 2165×922×600',
       desc:'Деревянный шезлонг из лиственницы (сорт АБ) для садов и общественных пространств.',
       renders:['assets/shezlong-2165/render.jpg'],
@@ -550,19 +660,33 @@
   ];
 
   const ov=document.getElementById('catalog'), ovBody=document.getElementById('ovBody'), ovCrumb=document.getElementById('ovCrumb');
-  window._ph=()=>{const d=document.createElement('div');d.className='ph';d.textContent='РЕНДЕР';return d};
-  const img=(src,alt)=>`<img src="${src}" alt="${alt||''}" loading="lazy" onerror="this.replaceWith(_ph())">`;
+  window._ph=(src)=>{const d=document.createElement('div');d.className='ph';d.textContent='РЕНДЕР';if(src){console.warn('Картинка не найдена:',src);d.title=src;if(/[?&]debug/.test(location.search)){const s=document.createElement('small');s.style.cssText='display:block;font-size:10px;padding:0 8px;word-break:break-all;opacity:.7';s.textContent=decodeURIComponent(src);d.appendChild(s)}}return d};
+  const img=(src,alt)=>`<img src="${src}" alt="${alt||''}" decoding="async" onerror="this.replaceWith(_ph(this.getAttribute('src')))">`;
   const fileRow=(t,f)=>`<div class="dfile"><span>${t}</span><a href="${f}" target="_blank" rel="noopener">ОТКРЫТЬ ↗</a></div>`;
 
+  const docBtn=(t,sub,f,cls)=>f?`<a class="btn big ${cls}" href="${f}" target="_blank" rel="noopener"><span>${t} <small>${sub}</small></span><span>↗</span></a>`:`<span class="btn big ${cls} off"><span>${t} <small>скоро</small></span></span>`;
+
+  const miniBtn=(t,f)=>f?`<a class="mini" href="${f}" target="_blank" rel="noopener">${t} ↗</a>`:`<span class="mini off" title="Файл пока не добавлен">${t}</span>`;
+
   function listView(group){
-    if(!GROUPS[group]) group='outdoor';
+    if(group&&!GROUPS[group]) group=null;
+    const cat=group?catOf(group):CATS.play;
+    if(!group&&cat.groups.length===1) group=cat.groups[0];
+    if(!group){
+      ovCrumb.textContent=cat.title;
+      ovBody.innerHTML=`<div class="kicker">Каталог</div><h2>${cat.title}</h2>
+        <div class="gtiles">${cat.groups.map((g,i)=>{const n=PROJECTS.filter(p=>p.group===g).length,c=GCOVER[g];
+          return `<button class="project gtile" data-g="${g}"><div class="gimg">${c?img(c,GROUPS[g]):'<div class="ph">РЕНДЕР</div>'}</div><div class="project-info"><div class="project-top"><div><h3>${GROUPS[g]}</h3><p>${n?plural(n):'Проекты скоро появятся'}</p><span class="cta-link">ОТКРЫТЬ →</span></div><span class="project-num">0${i+1}</span></div></div></button>`}).join('')}</div>`;
+      ovBody.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{location.hash='catalog/'+b.dataset.g});
+      return;
+    }
+    const multi=cat.groups.length>1;
     const items=PROJECTS.filter(p=>p.group===group);
-    ovCrumb.textContent='Игровое оборудование и МАФ';
-    ovBody.innerHTML=`<div class="kicker">Каталог</div><h2>Игровое оборудование и МАФ</h2>
-      <div class="tabs">${Object.keys(GROUPS).map(g=>`<button class="tab ${g===group?'active':''}" data-g="${g}">${GROUPS[g]}<small>${PROJECTS.filter(p=>p.group===g).length}</small></button>`).join('')}</div>
-      ${items.length?`<div class="cgrid">${items.map(p=>`<button class="ccard" data-id="${p.id}"><div class="cimg">${p.renders[0]?img(p.renders[0],p.title):'<div class="ph">РЕНДЕР</div>'}</div><div class="cinfo"><h3>${p.title}</h3><p>${p.desc}</p></div></button>`).join('')}</div>`:'<p class="empty">В этом разделе пока нет проектов.</p>'}`;
-    ovBody.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{location.hash='catalog/'+b.dataset.g});
-    ovBody.querySelectorAll('.ccard').forEach(b=>b.onclick=()=>{location.hash='project/'+b.dataset.id});
+    ovCrumb.textContent=multi?cat.title+' · '+GROUPS[group]:cat.title;
+    const empty=multi?'В этом разделе пока нет проектов.':'Проекты скоро появятся. Рендеры, инструкции и документацию могу отправить по запросу.';
+    ovBody.innerHTML=`<div class="kicker">${multi?cat.title:'Каталог'}</div><h2>${multi?GROUPS[group]:cat.title}</h2><div style="height:26px"></div>
+      ${items.length?`<div class="cgrid">${items.map(p=>p.group==='furniture'?`<article class="ccard fcard"><button class="fc-open" data-id="${p.id}"><div class="cimg">${p.renders[0]?img(p.renders[0],p.title):'<div class="ph">РЕНДЕР</div>'}</div><div class="cinfo"><h3>${p.title}</h3><p>${p.desc}</p></div></button><div class="fc-btns">${miniBtn('Эскиз',p.sketch)}${miniBtn('Инструкция',p.manual)}</div></article>`:`<button class="ccard" data-id="${p.id}"><div class="cimg">${p.renders[0]?img(p.renders[0],p.title):'<div class="ph">РЕНДЕР</div>'}</div><div class="cinfo"><h3>${p.title}</h3><p>${p.desc}</p></div></button>`).join('')}</div>`:`<p class="empty">${empty}</p>`}`;
+    ovBody.querySelectorAll('[data-id]').forEach(b=>b.onclick=()=>{location.hash='project/'+b.dataset.id});
   }
 
   function detailView(id){
@@ -574,8 +698,12 @@
         <div><div class="gmain" id="gmain">${p.renders[0]?img(p.renders[0],p.title):'<div class="ph">РЕНДЕР</div>'}</div>
           ${p.renders.length>1?`<div class="thumbs">${p.renders.map((r,i)=>`<button class="thumb ${i?'':'active'}" data-i="${i}" aria-label="Рендер ${i+1}">${img(r,'')}</button>`).join('')}</div>`:''}</div>
         <div><p class="detail-desc">${p.desc}</p>
-          <div class="dblock"><h4>Инструкция</h4>${p.manual?fileRow('Инструкция по сборке и эксплуатации',p.manual):'<span class="soon">Скоро будет добавлена</span>'}</div>
-          <div class="dblock"><h4>Конструкторская документация</h4>${p.docs.length?p.docs.map(d=>fileRow(d.title,d.file)).join(''):'<span class="soon">Скоро будет добавлена</span>'}</div>
+          ${p.group==='furniture'?`<div class="dbtns">
+            ${docBtn('Инструкция','по сборке',p.manual,'btn-primary')}
+            ${docBtn('Эскиз','чертёж изделия',p.sketch,'btn-ghost')}
+            ${p.passport?docBtn('Паспорт','изделия',p.passport,'btn-ghost'):''}
+          </div>`:`${p.manual?`<div class="dblock"><h4>Инструкция</h4>${fileRow('Инструкция по сборке и эксплуатации',p.manual)}</div>`:''}
+          ${(p.docs&&p.docs.length)?`<div class="dblock"><h4>Конструкторская документация</h4>${p.docs.map(d=>fileRow(d.title,d.file)).join('')}</div>`:''}`}
         </div>
       </div>`;
     ovBody.querySelectorAll('.thumb').forEach(t=>t.onclick=()=>{
@@ -586,7 +714,7 @@
 
   function route(){
     const h=location.hash.slice(1);
-    if(h==='catalog'||h.startsWith('catalog/')){ov.classList.add('open');document.body.classList.add('catalog-open');document.body.style.overflow='hidden';listView(h.split('/')[1]||'outdoor');ov.scrollTop=0}
+    if(h==='catalog'||h.startsWith('catalog/')){ov.classList.add('open');document.body.classList.add('catalog-open');document.body.style.overflow='hidden';listView(h.split('/')[1]);ov.scrollTop=0}
     else if(h.startsWith('project/')){ov.classList.add('open');document.body.classList.add('catalog-open');document.body.style.overflow='hidden';detailView(h.split('/')[1]);ov.scrollTop=0}
     else{ov.classList.remove('open');document.body.classList.remove('catalog-open');document.body.style.overflow=''}
   }
@@ -594,12 +722,13 @@
   document.getElementById('ovBack').onclick=()=>{
     const h=location.hash.slice(1);
     if(h.startsWith('project/')){const p=PROJECTS.find(x=>x.id===h.split('/')[1]);location.hash='catalog/'+(p?p.group:'outdoor')}
+    else if(h.startsWith('catalog/')&&catOf(h.split('/')[1]).groups.length>1&&GROUPS[h.split('/')[1]]) location.hash='catalog';
     else location.hash='portfolio';
   };
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ov.classList.contains('open'))document.getElementById('ovBack').click()});
   document.querySelectorAll('[data-open="catalog"]').forEach(el=>{
-    el.addEventListener('click',()=>{location.hash='catalog/outdoor'});
-    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();location.hash='catalog/outdoor'}});
+    el.addEventListener('click',()=>{location.hash=el.dataset.group?'catalog/'+el.dataset.group:'catalog'});
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();location.hash=el.dataset.group?'catalog/'+el.dataset.group:'catalog'}});
   });
   route();
 </script>
