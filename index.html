@@ -626,6 +626,7 @@
     [31,'Стол письменный СПМ-965','1.jpg','I','INS.pdf']
   ];
   const FURNITURE=FURN.map(([n,title,r,t,pass])=>{const d='assets/mebel/'+n+'/';return {id:'mebel-'+n,group:'furniture',title,desc:'',renders:[d+r],sketch:t==='E'?d+'ESKIZ.pdf':'',manual:t==='I'?d+'INS.pdf':'',passport:pass?'assets/'+pass:'',docs:[]}});
+  // UIK-START  (блок создан скриптом make_uik.py, вручную не править)
   // ===== Детские площадки (assets/UIK) =====
   // [папка, название, описание, [картинки], инструкция, пример, [другие документы]]
   const UIK_DATA=[
@@ -676,6 +677,7 @@
     ["Igrovoj Domik 123915", "Игровой домик 123915", "", ["02_Домик для кафе_1.jpg", "02_Домик для кафе_2.jpg", "02_Домик для кафе_3.jpg", "02_Домик для кафе_4.jpg", "02_Домик для кафе_5_размеры.jpg"], "Инструкия Igrovoj_Domik 123915.pdf", "PRIMER.pdf", []],
   ];
   const UIK=UIK_DATA.map(([f,title,desc,imgs,man,prim,docs],i)=>{const d='assets/UIK/'+f+'/';return {id:'uik-'+(i+1),group:'outdoor',title,desc,renders:imgs.map(x=>d+x),manual:man?d+man:'',docs:[...(prim?[{title:'Пример',file:d+prim}]:[]),...docs.map(x=>({title:x.replace(/\.[^.]+$/,''),file:d+x}))]}});
+  // UIK-END
   const PROJECTS=[
     ...INDOOR,
     ...UIK,
