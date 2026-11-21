@@ -314,6 +314,25 @@
     a.mini{border-color:rgba(200,169,120,.7);color:#1a1409;background:var(--accent);box-shadow:0 0 22px rgba(200,169,120,.22);cursor:pointer;transition:.2s}
     a.mini:hover{background:var(--accent2);transform:translateY(-2px)}
     .mini.off{opacity:.55;cursor:not-allowed;border-style:dashed}
+
+    /* ===== Мягкая постраничная прокрутка (нативная, без перехвата колеса) =====
+       Чтобы отключить: удалить блок "scroll-snap-type" ниже. На телефонах и при
+       отключённой анимации в системе привязка не включается. */
+    @media (min-width:851px) and (prefers-reduced-motion:no-preference){
+      html{scroll-snap-type:y proximity}
+      main>section{scroll-snap-align:start}
+      footer{scroll-snap-align:end}
+    }
+    /* ===== Фото в карточках портфолио с растушёванными краями ===== */
+    .art-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;
+      -webkit-mask-image:linear-gradient(to right,transparent 0,#000 11%,#000 89%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%);
+      -webkit-mask-composite:source-in;
+      mask-image:linear-gradient(to right,transparent 0,#000 11%,#000 89%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%,#000 86%,transparent 100%);
+      mask-composite:intersect;transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .4s}
+    .project-art.has-photo{background:var(--panel)}
+    .project-art.has-photo:after{display:none}
+    .project-art.has-photo>svg{display:none}
+    .project:hover .art-photo{transform:scale(1.05);filter:brightness(1.08)}
     @media(max-width:850px){
       .navlinks{display:none;position:absolute;top:78px;left:0;right:0;background:#101419;padding:20px 24px 25px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
       .navlinks.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}
@@ -423,16 +442,16 @@
       <div class="section-head"><div><div class="kicker">03 / Избранные направления</div><h2>Портфолио проектов</h2></div><p class="section-intro">Основные направления работ. В каталоге игрового оборудования и МАФ у каждого проекта есть рендеры, инструкция и конструкторская документация.</p></div>
       <div class="projects">
         <article class="project featured clickable" data-open="catalog" tabindex="0" role="button" aria-label="Открыть каталог игрового оборудования и МАФ">
-          <div class="project-art"><span class="art-tag">Play equipment</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p1" x2="1" y2="1"><stop stop-color="#65736e"/><stop offset="1" stop-color="#1b2828"/></linearGradient></defs><rect width="700" height="330" fill="url(#p1)"/><path d="M0 265L700 210V330H0Z" fill="#18201f"/><g fill="none" stroke="#d5bd91" stroke-width="5"><path d="M190 250V95H330V250M360 250V65H500V250M190 95L260 45L330 95M360 65L430 15L500 65"/><path d="M330 145H360M190 160H330M360 130H500"/><path d="M215 250L260 190L305 250M385 250L430 185L475 250"/></g><g stroke="#f1e2c5" stroke-width="2" opacity=".65"><path d="M260 45V250M430 15V250M190 190H330M360 180H500"/></g></svg></div>
+          <div class="project-art"><span class="art-tag">Play equipment</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p1" x2="1" y2="1"><stop stop-color="#65736e"/><stop offset="1" stop-color="#1b2828"/></linearGradient></defs><rect width="700" height="330" fill="url(#p1)"/><path d="M0 265L700 210V330H0Z" fill="#18201f"/><g fill="none" stroke="#d5bd91" stroke-width="5"><path d="M190 250V95H330V250M360 250V65H500V250M190 95L260 45L330 95M360 65L430 15L500 65"/><path d="M330 145H360M190 160H330M360 130H500"/><path d="M215 250L260 190L305 250M385 250L430 185L475 250"/></g><g stroke="#f1e2c5" stroke-width="2" opacity=".65"><path d="M260 45V250M430 15V250M190 190H330M360 180H500"/></g></svg><img class="art-photo" data-photo="DET" alt="" hidden></div>
           <div class="project-info"><div class="project-top"><div><h3>Игровое оборудование и МАФ</h3><p>Уличные детские площадки, закрытые игровые комплексы и малые архитектурные формы: рендеры, инструкции и конструкторская документация.</p><span class="cta-link">ОТКРЫТЬ КАТАЛОГ →</span></div><span class="project-num">01</span></div></div>
         </article>
         <article class="project clickable" data-category="furniture" data-open="catalog" data-group="furniture" tabindex="0" role="button" aria-label="Открыть каталог мебели">
-          <div class="project-art"><span class="art-tag">Furniture</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p3" x2="1" y2="1"><stop stop-color="#4a4b4b"/><stop offset="1" stop-color="#171a1d"/></linearGradient></defs><rect width="700" height="330" fill="url(#p3)"/><path d="M0 260L700 235V330H0Z" fill="#16191c"/><g fill="#252d32" stroke="#c8a978" stroke-width="3"><rect x="200" y="50" width="300" height="205" rx="3"/><path d="M200 118H500M200 186H500M350 50V255" fill="none"/><path d="M215 255V275M485 255V275" fill="none"/></g><g stroke="#e7d9c2" stroke-width="2" opacity=".55" fill="none"><rect x="222" y="70" width="46" height="40"/><rect x="288" y="82" width="38" height="28"/><rect x="372" y="138" width="90" height="40"/><rect x="222" y="206" width="110" height="38"/><path d="M372 206H478M372 224H440"/></g></svg></div>
+          <div class="project-art"><span class="art-tag">Furniture</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p3" x2="1" y2="1"><stop stop-color="#4a4b4b"/><stop offset="1" stop-color="#171a1d"/></linearGradient></defs><rect width="700" height="330" fill="url(#p3)"/><path d="M0 260L700 235V330H0Z" fill="#16191c"/><g fill="#252d32" stroke="#c8a978" stroke-width="3"><rect x="200" y="50" width="300" height="205" rx="3"/><path d="M200 118H500M200 186H500M350 50V255" fill="none"/><path d="M215 255V275M485 255V275" fill="none"/></g><g stroke="#e7d9c2" stroke-width="2" opacity=".55" fill="none"><rect x="222" y="70" width="46" height="40"/><rect x="288" y="82" width="38" height="28"/><rect x="372" y="138" width="90" height="40"/><rect x="222" y="206" width="110" height="38"/><path d="M372 206H478M372 224H440"/></g></svg><img class="art-photo" data-photo="INT" alt="" hidden></div>
           <div class="project-info"><div class="project-top"><div><h3>Мебель</h3><p>Корпусная мебель, мебель для конструкторов, интерьерные решения и элементы из дерева, массива и листовых материалов: рендеры, инструкции по сборке и документация.</p><span class="cta-link">ОТКРЫТЬ КАТАЛОГ →</span></div><span class="project-num">02</span></div></div>
         </article>
-        <article class="project" data-category="visual">
-          <div class="project-art"><span class="art-tag">3D / Visualization</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p4" x2="0" y2="1"><stop stop-color="#515a5d"/><stop offset="1" stop-color="#1a2024"/></linearGradient></defs><rect width="700" height="330" fill="url(#p4)"/><path d="M0 245L700 195V330H0Z" fill="#20272a"/><g fill="#303b3e" stroke="#d0b487" stroke-width="2"><path d="M120 190L330 95L555 170L340 270Z"/><path d="M120 190V220L340 300V270Z"/><path d="M340 270V300L555 200V170Z"/></g><g stroke="#eee0c8" stroke-width="2" opacity=".6"><path d="M330 95V210M220 145V230M445 132V220M120 190L340 270L555 170"/></g></svg></div>
-          <div class="project-info"><div class="project-top"><div><h3>3D-моделирование и визуализация</h3><p>Объёмные модели, презентационные изображения и визуальная проработка проектных решений.</p></div><span class="project-num">03</span></div></div>
+        <article class="project" data-category="exterior">
+          <div class="project-art"><span class="art-tag">Exterior</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p4" x2="0" y2="1"><stop stop-color="#515a5d"/><stop offset="1" stop-color="#1a2024"/></linearGradient></defs><rect width="700" height="330" fill="url(#p4)"/><path d="M0 245L700 195V330H0Z" fill="#20272a"/><g fill="#303b3e" stroke="#d0b487" stroke-width="2"><path d="M120 190L330 95L555 170L340 270Z"/><path d="M120 190V220L340 300V270Z"/><path d="M340 270V300L555 200V170Z"/></g><g stroke="#eee0c8" stroke-width="2" opacity=".6"><path d="M330 95V210M220 145V230M445 132V220M120 190L340 270L555 170"/></g></svg><img class="art-photo" data-photo="EX" alt="" hidden></div>
+          <div class="project-info"><div class="project-top"><div><h3>Экстерьер</h3><p>Внешние пространства и фасадные решения: 3D-модели и визуализация для согласования и презентации.</p></div><span class="project-num">03</span></div></div>
         </article>
       </div>
     </div>
@@ -506,29 +525,6 @@
     j.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}});
   });
 
-  /* ===== Вписываем содержимое каждого раздела в высоту экрана (компьютер) ===== */
-  (function(){
-    const mq=window.matchMedia('(min-width:851px)');
-    const secs=[...document.querySelectorAll('main>section')];
-    function fit(){
-      const vh=window.innerHeight;
-      secs.forEach(sec=>{
-        const w=sec.querySelector(':scope>.wrap'); if(!w) return;
-        w.style.zoom='';
-        if(!mq.matches) return;
-        const cs=getComputedStyle(sec);
-        const avail=vh-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
-        const h=w.offsetHeight;
-        if(h>avail) w.style.zoom=Math.max(.55,avail/h).toFixed(3);
-      });
-    }
-    let t; const run=()=>{clearTimeout(t);t=setTimeout(fit,80)};
-    window.addEventListener('resize',run);
-    window.addEventListener('load',fit);
-    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
-    fit();
-  })();
-
   /* ===== Боковые точки: подсветка текущего раздела ===== */
   (function(){
     const links=[...document.querySelectorAll('#dots a')];
@@ -537,35 +533,16 @@
     secs.forEach(x=>x&&io.observe(x));
   })();
 
-  /* ===== Постраничная прокрутка колесом (только компьютер) =====
-     Короткий раздел листается целиком одним щелчком колеса.
-     Длинный (например, «Опыт») прокручивается обычно, а на его краю — переход к соседнему. */
-  (function(){
-    const mq=window.matchMedia('(min-width:851px)'), rm=window.matchMedia('(prefers-reduced-motion:reduce)');
-    const secs=[...document.querySelectorAll('main>section')];
-    let lock=0;
-    const bounds=()=>secs.map((el,i)=>{const t=el.offsetTop;const b=i===secs.length-1?document.documentElement.scrollHeight:secs[i+1].offsetTop;return [t,b]});
-    function go(y){lock=Date.now()+850;window.scrollTo({top:Math.max(0,y),behavior:rm.matches?'auto':'smooth'})}
-    window.addEventListener('wheel',e=>{
-      if(!mq.matches||e.ctrlKey||document.getElementById('catalog').classList.contains('open')) return;
-      if(Math.abs(e.deltaY)<Math.abs(e.deltaX)) return;
-      if(Date.now()<lock){lock=Math.max(lock,Date.now()+130);e.preventDefault();return}
-      const d=Math.sign(e.deltaY); if(!d) return;
-      const vh=window.innerHeight, y=window.scrollY, bs=bounds();
-      let i=bs.findIndex(([t,b])=>y+vh/2>=t&&y+vh/2<b); if(i<0) i=0;
-      const [t,b]=bs[i];
-      if(d>0){
-        const bottom=y+vh;
-        if(bottom>=b-3){ if(i<secs.length-1){e.preventDefault();go(bs[i+1][0]+0)} return }
-        if(bottom+Math.abs(e.deltaY)>b-3 && b-t>vh+90){e.preventDefault();go(b-vh);return}
-        if(b-t<=vh+90){e.preventDefault();go(i<secs.length-1?bs[i+1][0]:b-vh);return}
-      }else{
-        if(y<=t+3){ if(i>0){e.preventDefault();const [pt,pb]=bs[i-1];go(pb-pt>vh+90?pb-vh:pt)} return }
-        if(y-Math.abs(e.deltaY)<t+3){e.preventDefault();go(t);return}
-        if(b-t<=vh+90){e.preventDefault();go(t);return}
-      }
-    },{passive:false});
-  })();
+  /* ===== Фото карточек портфолио: DET, INT, EX =====
+     Скрипт сам ищет файл с таким именем (jpg/png/webp, в папке assets или рядом с index.html). */
+  document.querySelectorAll('img[data-photo]').forEach(im=>{
+    const n=im.dataset.photo,c=[];
+    for(const b of ['','assets/']) for(const nm of [n,n.toLowerCase()]) for(const e of ['jpg','png','jpeg','webp','JPG','PNG','JPEG','bmp']) c.push(b+nm+'.'+e);
+    let i=0;
+    im.onload=()=>{im.hidden=false;im.parentElement.classList.add('has-photo')};
+    im.onerror=()=>{i++;if(i<c.length)im.src=c[i]};
+    im.src=c[0];
+  });
 
   /* ===== ФОТО: положи файл photo.jpg (или .jpeg/.png/.webp) в папку assets ===== */
   (function(){
@@ -616,39 +593,39 @@
   const INDOOR=SPN.map(([n,title,files,desc])=>({id:'sparta-'+n,group:'indoor',title,desc:desc||'Закрытый игровой комплекс.',renders:files.map(f=>'assets/СПАРТА/'+n+'/'+f),manual:'',docs:[]}));
   const plural=n=>{const a=n%100,b=n%10;return n+' '+((a>10&&a<15)?'проектов':b===1?'проект':(b>1&&b<5)?'проекта':'проектов')};
   const FURN=[
-    [1,'Высокий бежевый шкаф с тёмной ручкой','1.png','E'],
-    [2,'Минималистичный шкаф в бежевых тонах','1.png','E'],
-    [3,'Современный гардероб с мягкой прихожей','1.png','E'],
-    [4,'Современный гардероб','1.png','E'],
-    [5,'Современный встроенный шкаф с подсветкой','1.png','E'],
-    [6,'Современный гардероб с голубым ящиком','Современный гардероб с голубым ящиком.png','E'],
-    [7,'Гардеробная','1.bmp','E'],
-    [8,'Современная кухня с барной стойкой','Современная кухня с барной стойкой.png','E'],
-    [9,'Детская','1.bmp','E'],
-    [10,'Санузел','1.png','E'],
-    [11,'Бордовая гардеробная с тёплой подсветкой','1.png','E'],
-    [12,'Современная бежевая кухня в нише','Современная бежевая кухня в нише.png','E'],
-    [13,'Современная прачечная с бежевой мебелью','1.png','E'],
-    [14,'Кресло раскладное','1.png','E'],
-    [15,'Шкаф','1.png','E'],
-    [16,'Шкаф','1.png','E'],
+    [1,'Высокий бежевый шкаф с тёмной ручкой','1.jpg','E'],
+    [2,'Минималистичный шкаф в бежевых тонах','1.jpg','E'],
+    [3,'Современный гардероб с мягкой прихожей','1.jpg','E'],
+    [4,'Современный гардероб','1.jpg','E'],
+    [5,'Современный встроенный шкаф с подсветкой','1.jpg','E'],
+    [6,'Современный гардероб с голубым ящиком','1.png','E'],
+    [7,'Гардеробная','1.jpg','E'],
+    [8,'Современная кухня с барной стойкой','1.png','E'],
+    [9,'Детская','1.jpg','E'],
+    [10,'Санузел','1.jpg','E'],
+    [11,'Бордовая гардеробная с тёплой подсветкой','1.jpg','E'],
+    [12,'Современная бежевая кухня в нише','1.png','E'],
+    [13,'Современная прачечная с бежевой мебелью','1.jpg','E'],
+    [14,'Кресло раскладное','1.jpg','E'],
+    [15,'Шкаф','1.jpg','E'],
+    [16,'Шкаф','1.jpg','E'],
     [17,'Кресло','1.jpg','E'],
-    [18,'Тумба с раковиной','1.png','E'],
-    [19,'Шкафчик','1.png','E'],
+    [18,'Тумба с раковиной','1.jpg','E'],
+    [19,'Шкафчик','1.jpg','E'],
     [20,'Диван','1.jpg','E'],
     [21,'Изделие 21','1.jpg','E'],
     [22,'Изделие 22','1.jpg',''],
     [23,'Изделие 23','1.jpg','E'],
-    [24,'Современный туалетный столик с зеркалом','1.png','E'],
-    [25,'Современная кухня в дубово-шалфейной гамме','Современная кухня в дубово-шалфейной гамме.png','E'],
+    [24,'Современный туалетный столик с зеркалом','1.jpg','E'],
+    [25,'Современная кухня в дубово-шалфейной гамме','1.png','E'],
     [26,'Кровать','1.jpg','E'],
-    [27,'Компьютерный стол КСТ-08.1','1.jpg','I','Паспорт КСТ-08_1.pdf'],
-    [28,'Стол письменный СПМ-07','1.jpg','I','Паспорт СПм-07_1.pdf'],
-    [29,'Стол письменный СПМ-212','1.jpg','I','Паспорт СПм-212.pdf'],
-    [30,'Стол письменный СПМ-963','1.jpg','I','Паспорт СПм-963.pdf'],
-    [31,'Стол письменный СПМ-965','1.jpg','I','Паспорт СПм-965.pdf']
+    [27,'Компьютерный стол КСТ-08.1','1.jpg','I','INS.pdf'],
+    [28,'Стол письменный СПМ-07','1.jpg','I','INS.pdf'],
+    [29,'Стол письменный СПМ-212','1.jpg','I','INS.pdf'],
+    [30,'Стол письменный СПМ-963','1.jpg','I','INS.pdf'],
+    [31,'Стол письменный СПМ-965','1.jpg','I','INS.pdf']
   ];
-  const FURNITURE=FURN.map(([n,title,r,t,pass])=>{const d='assets/Мебель/'+n+'/';return {id:'mebel-'+n,group:'furniture',title,desc:'',renders:[d+r],sketch:t==='E'?d+'ESKIZ.pdf':'',manual:t==='I'?d+'INS.pdf':'',passport:pass?'assets/'+pass:'',docs:[]}});
+  const FURNITURE=FURN.map(([n,title,r,t,pass])=>{const d='assets/mebel/'+n+'/';return {id:'mebel-'+n,group:'furniture',title,desc:'',renders:[d+r],sketch:t==='E'?d+'ESKIZ.pdf':'',manual:t==='I'?d+'INS.pdf':'',passport:pass?'assets/'+pass:'',docs:[]}});
   const PROJECTS=[
     ...INDOOR,
     ...FURNITURE,
