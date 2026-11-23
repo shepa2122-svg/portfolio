@@ -91,6 +91,8 @@
     .step p{font-size:13px;color:var(--muted);line-height:1.7;margin:0}
     .tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
     .tool{padding:11px 15px;border:1px solid var(--line);border-radius:10px;color:#c3c8cd;font-size:15px;background:rgba(255,255,255,.02)}
+    .tool{display:inline-flex;align-items:center;gap:10px}
+    .tool .ticon{width:22px;height:22px;object-fit:contain;border-radius:5px;flex:none;display:block}
     .contact{background:linear-gradient(135deg,#171b20,#0d1013);border-top:1px solid var(--line)}
     .contact-grid{display:grid;grid-template-columns:1fr .8fr;gap:70px;align-items:center}
     .contact h2{max-width:600px}
@@ -424,7 +426,7 @@
     <div class="wrap">
       <div class="section-head"><div><div class="kicker">02 / Опыт работы</div><h2>Где я работал</h2></div><p class="section-intro">СФУ, бакалавр, «Конструирование и технология электронных средств», 2014–2018. Полный цикл: концепт → 3D → КД → ЧПУ → производство.</p></div>
       <div class="exp-list">
-        <article class="job current"><div class="job-meta"><div class="period">2026 — настоящее время</div><div class="place">Удалённо</div></div><div><h3>Инженер-конструктор</h3><div class="company">IgraGrad</div><ul><li>Проектирую детские игровые площадки, комплексы и МАФ.</li><li>Разрабатываю рабочие чертежи, инструкции по сборке и файлы для ЧПУ.</li><li>Проектирую элементы из дерева, массива и листовых материалов.</li><li>Готовлю 3D-модели и рендеры для презентации заказчикам.</li><li>Сопровождаю проекты до передачи в производство.</li></ul></div></article>
+        <article class="job"><div class="job-meta"><div class="period">2026</div><div class="place">Удалённо</div></div><div><h3>Инженер-конструктор</h3><div class="company">IgraGrad</div><ul><li>Проектировал детские игровые площадки, комплексы и МАФ.</li><li>Разрабатывал рабочие чертежи, инструкции по сборке и файлы для ЧПУ.</li><li>Проектировал элементы из дерева, массива и листовых материалов.</li><li>Готовил 3D-модели и рендеры для презентации заказчикам.</li><li>Сопровождал проекты до передачи в производство.</li></ul></div></article>
         <article class="job"><div class="job-meta"><div class="period">2025 — 2026</div><div class="place">Удалённо</div></div><div><h3>Дизайнер-проектировщик</h3><div class="company">FORRESTHOME</div><ul><li>Проектировал мебель и интерьерные решения.</li><li>Разрабатывал рабочую документацию для производства.</li><li>Выполнял 3D-визуализацию проектов.</li><li>Сопровождал проекты на этапах согласования и запуска в производство.</li></ul></div></article>
         <article class="job"><div class="job-meta"><div class="period">2025</div><div class="place">Удалённо</div></div><div><h3>Инженер-проектировщик</h3><div class="company">Place Freedom</div><ul><li>Разрабатывал проекты мебели для конструкторов.</li><li>Готовил техническую документацию и деталировки.</li><li>Адаптировал проекты под технологические возможности производства.</li></ul></div></article>
         <article class="job"><div class="job-meta"><div class="period">2022 — 2025</div><div class="place">Пермь / удалённо</div></div><div><h3>Инженер-конструктор / дизайнер-проектировщик</h3><div class="company">СПАРТА</div><ul><li>Проектировал детские игровые комплексы, площадки и МАФ.</li><li>Разрабатывал конструкторскую документацию, рабочие чертежи, спецификации и файлы для ЧПУ.</li><li>Проектировал мебель, интерьерные решения и элементы из дерева, массива и листовых материалов.</li><li>Выполнял 3D-визуализацию в 3ds Max и Unreal Engine.</li><li>Сопровождал проекты от согласования концепции до передачи в производство.</li><li>Взаимодействовал с заказчиками и производством.</li></ul></div></article>
@@ -449,9 +451,9 @@
           <div class="project-art"><span class="art-tag">Furniture</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p3" x2="1" y2="1"><stop stop-color="#4a4b4b"/><stop offset="1" stop-color="#171a1d"/></linearGradient></defs><rect width="700" height="330" fill="url(#p3)"/><path d="M0 260L700 235V330H0Z" fill="#16191c"/><g fill="#252d32" stroke="#c8a978" stroke-width="3"><rect x="200" y="50" width="300" height="205" rx="3"/><path d="M200 118H500M200 186H500M350 50V255" fill="none"/><path d="M215 255V275M485 255V275" fill="none"/></g><g stroke="#e7d9c2" stroke-width="2" opacity=".55" fill="none"><rect x="222" y="70" width="46" height="40"/><rect x="288" y="82" width="38" height="28"/><rect x="372" y="138" width="90" height="40"/><rect x="222" y="206" width="110" height="38"/><path d="M372 206H478M372 224H440"/></g></svg><img class="art-photo" data-photo="INT" alt="" hidden></div>
           <div class="project-info"><div class="project-top"><div><h3>Мебель</h3><p>Корпусная мебель, мебель для конструкторов, интерьерные решения и элементы из дерева, массива и листовых материалов: рендеры, инструкции по сборке и документация.</p><span class="cta-link">ОТКРЫТЬ КАТАЛОГ →</span></div><span class="project-num">02</span></div></div>
         </article>
-        <article class="project" data-category="exterior">
+        <article class="project clickable" data-category="exterior" data-open="catalog" data-group="exterior" tabindex="0" role="button" aria-label="Открыть каталог экстерьера">
           <div class="project-art"><span class="art-tag">Exterior</span><svg viewBox="0 0 700 330" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="p4" x2="0" y2="1"><stop stop-color="#515a5d"/><stop offset="1" stop-color="#1a2024"/></linearGradient></defs><rect width="700" height="330" fill="url(#p4)"/><path d="M0 245L700 195V330H0Z" fill="#20272a"/><g fill="#303b3e" stroke="#d0b487" stroke-width="2"><path d="M120 190L330 95L555 170L340 270Z"/><path d="M120 190V220L340 300V270Z"/><path d="M340 270V300L555 200V170Z"/></g><g stroke="#eee0c8" stroke-width="2" opacity=".6"><path d="M330 95V210M220 145V230M445 132V220M120 190L340 270L555 170"/></g></svg><img class="art-photo" data-photo="EX" alt="" hidden></div>
-          <div class="project-info"><div class="project-top"><div><h3>Экстерьер</h3><p>Внешние пространства и фасадные решения: 3D-модели и визуализация для согласования и презентации.</p></div><span class="project-num">03</span></div></div>
+          <div class="project-info"><div class="project-top"><div><h3>Экстерьер</h3><p>Внешние пространства и фасадные решения: 3D-модели и визуализация для согласования и презентации.</p><span class="cta-link">ОТКРЫТЬ КАТАЛОГ →</span></div><span class="project-num">03</span></div></div>
         </article>
       </div>
     </div>
@@ -480,7 +482,7 @@
   <section id="tools">
     <div class="wrap">
       <div class="section-head"><div><div class="kicker">05 / Рабочая среда</div><h2>Инструменты</h2></div><p class="section-intro">Программы и технологии, с которыми работаю.</p></div>
-      <div class="skillgroups"><div class="skillgroup"><h4>САПР и конструирование</h4><div class="tools"><span class="tool">SolidWorks</span><span class="tool">AutoCAD</span><span class="tool">Базис-Мебельщик</span><span class="tool">КД и рабочие чертежи</span><span class="tool">Спецификации</span><span class="tool">Файлы для ЧПУ</span></div></div><div class="skillgroup"><h4>3D и визуализация</h4><div class="tools"><span class="tool">3ds Max</span><span class="tool">Corona Renderer</span><span class="tool">Blender</span><span class="tool">SketchUp</span><span class="tool">Unreal Engine</span></div></div><div class="skillgroup"><h4>Графика и презентации</h4><div class="tools"><span class="tool">Adobe Photoshop</span><span class="tool">CorelDRAW</span><span class="tool">Adobe Premiere Pro</span><span class="tool">AI-инструменты для концептов</span></div></div><div class="skillgroup"><h4>Производство</h4><div class="tools"><span class="tool">Развёртки</span><span class="tool">Лазерная резка</span><span class="tool">Гибка металла</span><span class="tool">ЧПУ</span><span class="tool">Сопровождение изготовления</span><span class="tool">Нормативная документация</span></div></div></div>
+      <div class="skillgroups"><div class="skillgroup"><h4>САПР и конструирование</h4><div class="tools"><span class="tool"><img class="ticon" src="assets/Icon/solidworks.jpg" alt="" onerror="this.remove()">SolidWorks</span><span class="tool"><img class="ticon" src="assets/Icon/Autocad.jpg" alt="" onerror="this.remove()">AutoCAD</span><span class="tool"><img class="ticon" src="assets/Icon/Bazis.jpg" alt="" onerror="this.remove()">Базис-Мебельщик</span><span class="tool">КД и рабочие чертежи</span><span class="tool">Спецификации</span><span class="tool">Файлы для ЧПУ</span></div></div><div class="skillgroup"><h4>3D и визуализация</h4><div class="tools"><span class="tool">3ds Max</span><span class="tool">Corona Renderer</span><span class="tool">Blender</span><span class="tool"><img class="ticon" src="assets/Icon/SketchUp.png" alt="" onerror="this.remove()">SketchUp</span><span class="tool"><img class="ticon" src="assets/Icon/LayOut.ico" alt="" onerror="this.remove()">LayOut</span><span class="tool">Unreal Engine</span></div></div><div class="skillgroup"><h4>Графика и презентации</h4><div class="tools"><span class="tool"><img class="ticon" src="assets/Icon/Photo.png" alt="" onerror="this.remove()">Adobe Photoshop</span><span class="tool"><img class="ticon" src="assets/Icon/Corel.jpg" alt="" onerror="this.remove()">CorelDRAW</span><span class="tool">Adobe Premiere Pro</span><span class="tool">AI-инструменты для концептов</span></div></div><div class="skillgroup"><h4>Производство</h4><div class="tools"><span class="tool">Развёртки</span><span class="tool">Лазерная резка</span><span class="tool">Гибка металла</span><span class="tool">ЧПУ</span><span class="tool">Сопровождение изготовления</span><span class="tool">Нормативная документация</span></div></div></div>
     </div>
   </section>
 
@@ -561,14 +563,15 @@
      {id:'shkaf-01',group:'furniture',title:'Шкаф «Название»',desc:'Описание.',
        renders:['assets/shkaf-01/render.jpg'],manual:'assets/shkaf-01/instruction.pdf',sketch:'assets/shkaf-01/sketch.pdf'},
   */
-  const GROUPS={outdoor:'Уличные',indoor:'Закрытые',maf:'МАФ',furniture:'Мебель'};
+  const GROUPS={outdoor:'Уличные',indoor:'Закрытые',maf:'МАФ',furniture:'Мебель',exterior:'Экстерьер'};
   /* Каталоги: какие группы (вкладки) входят в каждый. Вкладки показываются, если групп больше одной. */
   const CATS={
     play:{title:'Игровое оборудование и МАФ',groups:['outdoor','indoor','maf']},
-    furniture:{title:'Мебель',groups:['furniture']}
+    furniture:{title:'Мебель',groups:['furniture']},
+    exterior:{title:'Экстерьер',groups:['exterior']}
   };
   const catOf=g=>Object.values(CATS).find(c=>c.groups.includes(g))||CATS.play;
-  const GCOVER={outdoor:'assets/UIK/ДИК.31/0бщий вид ДИК.31 10000х7520х3960.png',indoor:'assets/СПАРТА/13/1.png',maf:'assets/shezlong-2165/render.jpg'};
+  const GCOVER={outdoor:'assets/UIK/ДИК.31/0бщий вид ДИК.31 10000х7520х3960.png',indoor:'assets/СПАРТА/13/1.png',maf:''};
   const jr=(a,b)=>Array.from({length:b-a+1},(_,i)=>(a+i)+'.jpg');
   const SPN=[
     [1,'Темиртау · 430 м²',['1.png',...jr(2,6)]],
@@ -588,7 +591,14 @@
     [15,'Сигма Парк · Ижевск',['1.jpg','2.jpg',...jr(4,7)]],
     [16,'Вологда · ЕС35.ру Парк, 320 м²',jr(1,8)],
     [17,'Москва',['1.png',...jr(3,5)]],
-    [18,'Томск',['1.jpg',...jr(3,6)]]
+    [18,'Томск',['1.jpg',...jr(3,6)]],
+    [19,'Проект 19',['1.png']],
+    [20,'Проект 20',['1.png','2.png','3.png','4.png','5.png']],
+    [21,'Проект 21',['1.jpg','2.jpg']],
+    [22,'Проект 22',['Изометрическая детская площадка-корабль.png','ChatGPT Image 2 окт. 2026 г., 19_40_18.png']],
+    [23,'Проект 23',['1.png','2.png']],
+    [24,'Проект 24',['1.png','2.png','3.png','4.png']],
+    [25,'Проект 25',['1.png','2.png']]
   ];
   const INDOOR=SPN.map(([n,title,files,desc])=>({id:'sparta-'+n,group:'indoor',title,desc:desc||'Закрытый игровой комплекс.',renders:files.map(f=>'assets/СПАРТА/'+n+'/'+f),manual:'',docs:[]}));
   const plural=n=>{const a=n%100,b=n%10;return n+' '+((a>10&&a<15)?'проектов':b===1?'проект':(b>1&&b<5)?'проекта':'проектов')};
@@ -626,7 +636,7 @@
     [31,'Стол письменный СПМ-965','1.jpg','I','INS.pdf']
   ];
   const FURNITURE=FURN.map(([n,title,r,t,pass])=>{const d='assets/mebel/'+n+'/';return {id:'mebel-'+n,group:'furniture',title,desc:'',renders:[d+r],sketch:t==='E'?d+'ESKIZ.pdf':'',manual:t==='I'?d+'INS.pdf':'',passport:pass?'assets/'+pass:'',docs:[]}});
-  // UIK-START  (блок создан скриптом make_uik.py, вручную не править)
+  // UIK-START  (блок создан скриптом make_catalog.py, вручную не править)
   // ===== Детские площадки (assets/UIK) =====
   // [папка, название, описание, [картинки], инструкция, пример, [другие документы]]
   const UIK_DATA=[
@@ -678,15 +688,54 @@
   ];
   const UIK=UIK_DATA.map(([f,title,desc,imgs,man,prim,docs],i)=>{const d='assets/UIK/'+f+'/';return {id:'uik-'+(i+1),group:'outdoor',title,desc,renders:imgs.map(x=>d+x),manual:man?d+man:'',docs:[...(prim?[{title:'Пример',file:d+prim}]:[]),...docs.map(x=>({title:x.replace(/\.[^.]+$/,''),file:d+x}))]}});
   // UIK-END
+  // EX-START  (блок создан скриптом make_catalog.py, вручную не править)
+  // ===== Экстерьер (assets/EX): [папка, [картинки]] =====
+  const EXT_DATA=[
+    ["1", ["1.png", "2.png"]],
+    ["2", ["Современный дом в зелёном саду.png", "Современный кирпичный гараж в саду.png"]],
+    ["3", ["IMG_20260928_090421.jpg", "IMG_20260928_090423.jpg", "IMG_20260928_090424.jpg", "IMG_20260928_090425.jpg"]],
+    ["4", ["1.png", "2.jpg", "3.jpg", "4.jpg"]],
+    ["5", ["1.png", "2.jpg", "3.jpg", "4.jpg", "План 83.jpg"]],
+    ["6", ["1.jpg", "1.png", "2.jpg", "3.jpg", "5.jpg", "План 94.jpg"]],
+    ["7", ["Современный дом в цветущем саду.png", "План 81.jpg"]],
+    ["8", ["1.png", "2.jpg", "3.jpg", "4.jpg", "План 75.jpg"]],
+    ["9", ["1.png", "2.jpg", "3.jpg", "4.jpg", "План 64.jpg"]],
+    ["10", ["1.png", "2.jpg", "3.jpg", "4.jpg", "photo_2025-10-23_09-23-08.jpg", "photo_2025-10-23_09-23-59.jpg", "photo_2025-10-31_04-56-59.jpg", "photo_2025-11-03_09-09-36.jpg", "План 1 эт.jpg", "План 2 эт..jpg"]],
+    ["11", ["1.png", "2.jpg", "3.jpg", "4.jpg"]],
+    ["12", ["1.png", "2.jpg", "3.jpg", "План 26.png"]],
+    ["13", ["1.png", "2.png", "11.png", "22.png", "План 103.jpg"]],
+  ];
+  const EXT=EXT_DATA.map(([f,imgs])=>{const d='assets/EX/'+f+'/';return {id:'ex-'+f,group:'exterior',title:'Экстерьер '+f,desc:'',renders:imgs.map(x=>d+x),manual:'',docs:[]}});
+  // EX-END
+  // MAF-START  (блок создан скриптом make_catalog.py, вручную не править)
+  // ===== МАФ (assets/MAP): [папка, название, [картинки], [pdf], описание] =====
+  const MAF_DATA=[
+    ["Диван", "Диван", ["Современный угловой диван в саду.png"], ["Диван.pdf"], ""],
+    ["Диван 2", "Диван 2", ["Современный садовый диван с столиком.png"], ["46_Диван 2.pdf"], ""],
+    ["Кашпо большое (лиственница сорт АБ)", "Кашпо большое (лиственница сорт АБ)", ["Деревянный плантер в солнечном саду.png"], ["40_Кашпо большое (лиственница сорт АБ).pdf"], ""],
+    ["Кладовая", "Кладовая", ["Современный деревянный контейнер во дворе.png"], ["90_Кладовая.pdf"], ""],
+    ["Комплект мебели монс", "Комплект мебели монс", ["2.jpg"], ["Чертеж.pdf"], ""],
+    ["Контейнерная", "Контейнерная", ["Контейнерная.png"], ["Чертеж.pdf"], ""],
+    ["Кресло", "Кресло", ["Современное кресло в солнечном саду.png"], ["Кресло.pdf"], ""],
+    ["Пергола 1", "Пергола 1", ["1.png"], ["Чертеж.pdf"], ""],
+    ["Пергола 2", "Пергола 2", ["2.png"], ["Чертеж.pdf"], ""],
+    ["Скамья 3", "Скамья 3", ["Современная треугольная скамья в саду.png"], ["Скамья 4.pdf"], ""],
+    ["Скамья со спинкой", "Скамья со спинкой", ["1.png"], ["37_Скамья со спинкой.pdf"], ""],
+    ["Скамья со спинкой (лиственница сорт АБ)", "Скамья со спинкой (лиственница сорт АБ)", ["2.png"], ["38_Скамья со спинкой (лиственница сорт АБ).pdf"], ""],
+    ["Стол", "Стол", ["2.png"], ["Чертеж.pdf"], ""],
+    ["Стол журнальный (лиственница сорт АБ", "Стол журнальный (лиственница сорт АБ)", ["Садовая скамья среди цветущих гортензий.png"], ["Стол журнальный (лиственница сорт АБ.pdf"], ""],
+    ["Стол стальной высокий", "Стол стальной высокий", ["Солнечная скамейка в саду.png"], ["Стол стальной высокий.pdf"], ""],
+    ["Шезлонг", "Шезлонг 2165×922×600", ["render.jpg"], ["drawings.pdf"], "Деревянный шезлонг из лиственницы (сорт АБ) для садов и общественных пространств."],
+  ];
+  const MAF=MAF_DATA.map(([f,title,imgs,pdfs,desc],i)=>{const d='assets/MAP/'+f+'/';return {id:'maf-'+(i+1),group:'maf',title,desc:desc||'',renders:imgs.map(x=>d+x),manual:'',docs:pdfs.map(x=>({title:'Конструкторская документация',file:d+x}))}});
+  {const mc=MAF.find(p=>/^Шезлонг/.test(p.title)&&p.renders[0])||MAF.find(p=>p.renders[0]);if(mc)GCOVER.maf=mc.renders[0];}
+  // MAF-END
   const PROJECTS=[
     ...INDOOR,
     ...UIK,
-    ...FURNITURE,
-    {id:'shezlong-2165',group:'maf',title:'Шезлонг 2165×922×600',
-      desc:'Деревянный шезлонг из лиственницы (сорт АБ) для садов и общественных пространств.',
-      renders:['assets/shezlong-2165/render.jpg'],
-      manual:'',
-      docs:[{title:'Конструкторская документация',file:'assets/shezlong-2165/drawings.pdf'}]}
+    ...EXT,
+    ...MAF,
+    ...FURNITURE
   ];
 
   const ov=document.getElementById('catalog'), ovBody=document.getElementById('ovBody'), ovCrumb=document.getElementById('ovCrumb');

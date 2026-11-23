@@ -3,6 +3,7 @@
 Читает РЕАЛЬНЫЕ имена файлов с диска и пересобирает блоки в index.html:
   assets/UIK  -> между  // UIK-START  и  // UIK-END   (уличные площадки)
   assets/EX   -> между  // EX-START   и  // EX-END    (экстерьер)
+  assets/MAF (или assets/MAP) -> между  // MAF-START и // MAF-END  (МАФ)
 Запуск: положить рядом с index.html и выполнить   python make_catalog.py
 Другие пути:  python make_catalog.py <корень сайта>
 """
@@ -77,10 +78,44 @@ def build_ex(d):
     rep = ['%-24s картинок: %2d%s' % (r[1], len(r[2]), '' if r[2] else '   <-- НЕТ КАРТИНОК') for r in rows]
     return '\n'.join(out), rep
 
+
+# ---------------- MAF: малые архитектурные формы ----------------
+# своё название и описание для отдельных папок (ключ: имя папки строчными буквами)
+OVR_MAF = {'шезлонг': ('Шезлонг 2165×922×600', 'Деревянный шезлонг из лиственницы (сорт АБ) для садов и общественных пространств.')}
+def build_maf(d):
+    rows = []
+    for folder in subdirs(d):
+        fp = os.path.join(d, folder)
+        files = [f for f in os.listdir(fp) if os.path.isfile(os.path.join(fp, f))]
+        imgs = sorted((f for f in files if nfc(f).lower().endswith(IMG)), key=nat)
+        pdfs = sorted((f for f in files if nfc(f).lower().endswith('.pdf')), key=nat)
+        t = nfc(folder).strip()
+        if t.count('(') > t.count(')'): t += ')' * (t.count('(') - t.count(')'))
+        desc = ''
+        if nfc(folder).strip().lower() in OVR_MAF: t, desc = OVR_MAF[nfc(folder).strip().lower()]
+        rows.append((nat(folder), folder, t, imgs, pdfs, desc))
+    rows.sort(key=lambda r: r[0])
+    base = os.path.basename(d)
+    out = ['  // MAF-START  (блок создан скриптом make_catalog.py, вручную не править)',
+           '  // ===== МАФ (assets/%s): [папка, название, [картинки], [pdf], описание] =====' % base,
+           '  const MAF_DATA=[']
+    for _, f, t, imgs, pdfs, desc in rows:
+        out.append('    ' + json.dumps([f, t, imgs, pdfs, desc], ensure_ascii=False) + ',')
+    out += ['  ];',
+      "  const MAF=MAF_DATA.map(([f,title,imgs,pdfs,desc],i)=>{const d='assets/%s/'+f+'/';return {id:'maf-'+(i+1),group:'maf',title,desc:desc||'',renders:imgs.map(x=>d+x),manual:'',docs:pdfs.map(x=>({title:'Конструкторская документация',file:d+x}))}});" % base,
+      "  {const mc=MAF.find(p=>/^Шезлонг/.test(p.title)&&p.renders[0])||MAF.find(p=>p.renders[0]);if(mc)GCOVER.maf=mc.renders[0];}",
+      '  // MAF-END']
+    rep = ['%-42s картинок: %d  pdf: %d%s' % (r[1], len(r[3]), len(r[4]), '' if r[3] else '   <-- НЕТ КАРТИНОК') for r in rows]
+    return '\n'.join(out), rep
+
 if not os.path.isfile(index): sys.exit('Нет файла: ' + index)
 s = open(index, encoding='utf-8').read()
 shutil.copy(index, index + '.bak')
-for name, folder, fn in (('UIK', 'UIK', build_uik), ('EX', 'EX', build_ex)):
+def maf_folder():
+    for n in ('MAF', 'MAP'):
+        if os.path.isdir(os.path.join(root, 'assets', n)): return n
+    return 'MAF'
+for name, folder, fn in (('UIK', 'UIK', build_uik), ('EX', 'EX', build_ex), ('MAF', maf_folder(), build_maf)):
     d = os.path.join(root, 'assets', folder)
     pat = re.compile(r'[ \t]*// %s-START.*?// %s-END' % (name, name), re.S)
     if not os.path.isdir(d): print('[%s] пропущено: нет папки %s' % (name, d)); continue
