@@ -382,7 +382,18 @@
     @media(max-width:850px){.price-grid{grid-template-columns:1fr}.price-wide{grid-column:auto}.price-cover{height:190px}}
     @media(max-width:560px){.price-content{padding:19px}.price-cover{height:170px}.price-content h3{font-size:19px}.price-two{grid-template-columns:1fr;gap:12px}.price-table{font-size:13px}.price-table th,.price-table td{padding:10px 6px}}
 
-  </style>
+  
+
+    /* ===== Акцент на желаемом окладе в первом экране ===== */
+    .salary-highlight{display:flex;flex-direction:column;align-items:flex-start;gap:5px;width:min(100%,430px);margin-top:28px;padding:18px 22px;border:1px solid rgba(200,169,120,.72);border-left:4px solid var(--accent);border-radius:14px;background:linear-gradient(110deg,rgba(200,169,120,.16),rgba(200,169,120,.045));box-shadow:0 12px 34px rgba(0,0,0,.18);transition:transform .2s,border-color .2s}
+    .salary-highlight:hover{transform:translateY(-2px);border-color:var(--accent2)}
+    .salary-kicker{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--accent2)}
+    .salary-highlight strong{font-size:clamp(28px,3vw,36px);line-height:1.15;letter-spacing:-.03em;color:#f2e5d1}
+    .salary-highlight strong small{font-size:15px;font-weight:500;letter-spacing:0;color:#c3c8ce}
+    .salary-note{margin-top:3px;color:#c3c8ce;font-size:13px;line-height:1.5}
+    @media(max-width:560px){.salary-highlight{margin-top:22px;padding:16px 18px}.salary-highlight strong{font-size:30px}}
+
+</style>
 </head>
 <body>
 <header class="topbar" id="topbar">
@@ -410,6 +421,11 @@
           <a class="btn btn-primary" href="#portfolio">СМОТРЕТЬ ПОРТФОЛИО <span>↗</span></a>
           <a class="btn btn-ghost" href="#contacts">СВЯЗАТЬСЯ</a>
         </div>
+        <a class="salary-highlight" href="#contacts" aria-label="Желаемый оклад 150 000 рублей в месяц">
+          <span class="salary-kicker">ЖЕЛАЕМЫЙ ОКЛАД</span>
+          <strong>150 000 ₽ <small>/ месяц</small></strong>
+          <span class="salary-note">Рассматриваю постоянную удалённую работу и долгосрочное сотрудничество</span>
+        </a>
       </div>
       <div class="hero-visual" aria-label="Абстрактная инженерная схема">
         <div class="visual-index">FIG. 01 / DESIGN STUDY</div>
