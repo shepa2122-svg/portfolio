@@ -350,6 +350,38 @@
       .stats{gap:10px}.stat strong{font-size:22px}.stat span{font-size:11px}
       .project-art{height:220px}footer .wrap{display:block}footer .wrap span{display:block;margin-top:8px}
     }
+
+    /* ===== Прайс-лист ===== */
+    .pricing{background:#0d1115;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .price-intro{max-width:760px;color:var(--muted);font-size:15px;line-height:1.8;margin:-8px 0 30px}
+    .price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .price-card{border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden;min-width:0}
+    .price-cover{height:210px;position:relative;overflow:hidden;background:#171c22}
+    .price-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+    .price-card:hover .price-cover img{transform:scale(1.035)}
+    .price-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,10,12,.72),transparent 72%)}
+    .price-cover span{position:absolute;z-index:1;left:22px;bottom:17px;color:#f1e4ce;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+    .price-content{padding:24px}
+    .price-content h3{font-size:21px;margin:0 0 9px}
+    .price-desc{font-size:14px;color:var(--muted);line-height:1.75;margin:0 0 20px}
+    .price-table-wrap{overflow-x:auto}
+    .price-table{width:100%;border-collapse:collapse;font-size:14px}
+    .price-table th{text-align:left;color:#aeb6bd;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:11px 8px;border-bottom:1px solid rgba(200,169,120,.35)}
+    .price-table td{padding:12px 8px;border-bottom:1px solid var(--line);vertical-align:top;color:#dfe2e4}
+    .price-table tr:last-child td{border-bottom:0}
+    .price-table td:last-child{color:var(--accent2);font-weight:700;text-align:right;white-space:nowrap}
+    .price-subtitle{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin:22px 0 8px}
+    .price-list{margin:0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.8}
+    .price-list li::marker{color:var(--accent)}
+    .price-note{margin-top:16px;padding:14px 16px;border:1px solid rgba(200,169,120,.22);border-radius:12px;background:rgba(200,169,120,.045);font-size:13px;line-height:1.7;color:#c5cbd0}
+    .price-wide{grid-column:1/-1}
+    .price-wide .price-content{padding:25px 28px}
+    .price-two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .price-foot{margin-top:26px;border-top:1px solid var(--line);padding-top:20px;color:#aeb6bd;font-size:13px;line-height:1.8}
+    .price-foot strong{color:var(--accent2)}
+    @media(max-width:850px){.price-grid{grid-template-columns:1fr}.price-wide{grid-column:auto}.price-cover{height:190px}}
+    @media(max-width:560px){.price-content{padding:19px}.price-cover{height:170px}.price-content h3{font-size:19px}.price-two{grid-template-columns:1fr;gap:12px}.price-table{font-size:13px}.price-table th,.price-table td{padding:10px 6px}}
+
   </style>
 </head>
 <body>
@@ -357,7 +389,7 @@
   <div class="wrap nav">
     <a class="brand" href="#home">VLADIMIR<span>.</span>ENGINEERING</a>
     <nav class="navlinks" id="navlinks">
-      <a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#portfolio">Портфолио</a><a href="#services">Услуги</a><a href="#tools">Инструменты</a><a href="#contacts">Контакты</a>
+      <a href="#about">Обо мне</a><a href="#experience">Опыт</a><a href="#portfolio">Портфолио</a><a href="#services">Услуги</a><a href="#pricing">Прайс</a><a href="#tools">Инструменты</a><a href="#contacts">Контакты</a>
     </nav>
     <a class="nav-cta" href="#contacts">ОБСУДИТЬ ПРОЕКТ ↗</a>
     <button class="menu-btn" id="menuBtn" aria-label="Открыть меню">☰</button>
@@ -365,7 +397,7 @@
 </header>
 
 <nav class="dots" id="dots" aria-label="Разделы">
-  <a href="#home"><span>Главная</span></a><a href="#about"><span>Обо мне</span></a><a href="#experience"><span>Опыт</span></a><a href="#portfolio"><span>Портфолио</span></a><a href="#services"><span>Услуги</span></a><a href="#tools"><span>Инструменты</span></a><a href="#contacts"><span>Контакты</span></a>
+  <a href="#home"><span>Главная</span></a><a href="#about"><span>Обо мне</span></a><a href="#experience"><span>Опыт</span></a><a href="#portfolio"><span>Портфолио</span></a><a href="#services"><span>Услуги</span></a><a href="#pricing"><span>Прайс</span></a><a href="#tools"><span>Инструменты</span></a><a href="#contacts"><span>Контакты</span></a>
 </nav>
 <main>
   <section class="hero" id="home">
@@ -480,16 +512,175 @@
     </div>
   </section>
 
+
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <div><div class="kicker">05 / Стоимость работ</div><h2>Прайс-лист</h2></div>
+        <p class="section-intro">Основные направления инженерного проектирования и 3D-визуализации. Стоимость зависит от объёма исходных данных, сложности и состава результата.</p>
+      </div>
+      <p class="price-intro">Цены приведены для предварительной оценки проекта. Перед началом работы уточняю задачу, исходные материалы, сроки и необходимый состав документации — после этого фиксируем стоимость.</p>
+      <div class="price-grid">
+        <article class="price-card">
+          <div class="price-cover"><img src="assets/pricing/furniture.webp" alt="Современная корпусная мебель и кухня"><span>01 / Furniture design</span></div>
+          <div class="price-content">
+            <h3>Проектирование корпусной мебели</h3>
+            <p class="price-desc">Моделирование в БАЗИС-Мебельщик, согласовательные эскизы, производственная документация и инструкции по сборке.</p>
+            <div class="price-subtitle">3D-проектирование</div>
+            <div class="price-table-wrap"><table class="price-table"><tbody>
+              <tr><td>Простое изделие — тумба, стол, комод</td><td>5 000 ₽</td></tr>
+              <tr><td>Шкаф</td><td>8 000 ₽</td></tr>
+              <tr><td>Сложный шкаф / гардеробная</td><td>12 000 ₽</td></tr>
+              <tr><td>Кухня до 3 пог. м</td><td>12 000 ₽</td></tr>
+              <tr><td>Кухня 3–5 пог. м</td><td>18 000 ₽</td></tr>
+              <tr><td>Кухня более 5 пог. м</td><td>от 25 000 ₽</td></tr>
+            </tbody></table></div>
+            <div class="price-subtitle">Дополнительные материалы</div>
+            <div class="price-table-wrap"><table class="price-table"><tbody>
+              <tr><td>Согласовательный эскиз: простое изделие / шкаф / кухня</td><td>2 000 / 3 000 / 5 000 ₽</td></tr>
+              <tr><td>Карта деталей и размеров</td><td>3 000 ₽</td></tr>
+              <tr><td>Комплект производственных чертежей</td><td>5 000 ₽</td></tr>
+              <tr><td>Спецификация материалов и фурнитуры</td><td>3 000 ₽</td></tr>
+              <tr><td>Полный комплект документации для производства</td><td>от 8 000 ₽</td></tr>
+              <tr><td>Инструкция по сборке до 20 / 21–30 / 31–40 / от 41 детали</td><td>2 / 4 / 6 / 8 тыс. ₽</td></tr>
+            </tbody></table></div>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="price-cover"><img src="assets/pricing/engineering.webp" alt="Инженерная разработка деревянного игрового комплекса"><span>02 / Engineering & CAD</span></div>
+          <div class="price-content">
+            <h3>МАФ и детские игровые комплексы</h3>
+            <p class="price-desc">Комплексная инженерная разработка оборудования под производство: 3D-модель, конструктивная проработка, чертежи, спецификации и подготовка файлов.</p>
+            <div class="price-subtitle">Стоимость по количеству уникальных деталей</div>
+            <div class="price-table-wrap"><table class="price-table"><tbody>
+              <tr><td>До 10 уникальных деталей</td><td>30 000 ₽</td></tr>
+              <tr><td>11–30 уникальных деталей</td><td>55 000 ₽</td></tr>
+              <tr><td>31–50 уникальных деталей</td><td>85 000 ₽</td></tr>
+              <tr><td>51–100 уникальных деталей</td><td>130 000 ₽</td></tr>
+              <tr><td>101–150 уникальных деталей</td><td>180 000 ₽</td></tr>
+              <tr><td>Более 150 деталей</td><td>Индивидуально</td></tr>
+            </tbody></table></div>
+            <div class="price-subtitle">В базовую стоимость входит</div>
+            <ul class="price-list">
+              <li>3D-моделирование и конструирование в SolidWorks</li>
+              <li>Проработка конструкции, соединений, сборок и подсборок</li>
+              <li>Сборочные чертежи и чертежи деталей</li>
+              <li>Спецификации и подготовка файлов для производства</li>
+              <li>Проверка комплектности документации</li>
+            </ul>
+            <div class="price-note">Повторяющиеся детали учитываются один раз, стандартный покупной крепёж не учитывается. Например: 180 элементов, из них 42 уникальные детали — категория 31–50, стоимость 85 000 ₽. Сложные нестандартные узлы могут повлиять на цену. Расчёты прочности и нагрузок, испытания и сертификация оцениваются отдельно.</div>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="price-cover"><img src="assets/pricing/indoor.webp" alt="Фотореалистичная визуализация игрового интерьера"><span>03 / Interior visualization</span></div>
+          <div class="price-content">
+            <h3>Игровые помещения и интерьеры</h3>
+            <p class="price-desc">Полный цикл с нуля: моделирование помещения и оборудования, материалы, освещение, окружение и фотореалистичная визуализация. Включено 5 финальных ракурсов.</p>
+            <div class="price-table-wrap"><table class="price-table"><tbody>
+              <tr><td>До 50 м²</td><td>20 000 ₽</td></tr>
+              <tr><td>51–100 м²</td><td>35 000 ₽</td></tr>
+              <tr><td>101–200 м²</td><td>55 000 ₽</td></tr>
+              <tr><td>201–300 м²</td><td>75 000 ₽</td></tr>
+              <tr><td>301–500 м²</td><td>100 000 ₽</td></tr>
+              <tr><td>Более 500 м²</td><td>Индивидуально</td></tr>
+            </tbody></table></div>
+            <div class="price-note">Дополнительные ракурсы и существенные изменения после согласования оцениваются отдельно.</div>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="price-cover"><img src="assets/pricing/exterior.webp" alt="Благоустройство и современная общественная территория"><span>04 / Exterior & landscape</span></div>
+          <div class="price-content">
+            <h3>Экстерьеры и благоустройство</h3>
+            <p class="price-desc">Моделирование территории, архитектурных и ландшафтных элементов, материалов и освещения. Включено 5 финальных ракурсов.</p>
+            <div class="price-table-wrap"><table class="price-table"><tbody>
+              <tr><td>До 100 м²</td><td>20 000 ₽</td></tr>
+              <tr><td>101–300 м²</td><td>35 000 ₽</td></tr>
+              <tr><td>301–500 м²</td><td>50 000 ₽</td></tr>
+              <tr><td>501–1 000 м²</td><td>75 000 ₽</td></tr>
+              <tr><td>1 001–2 000 м²</td><td>110 000 ₽</td></tr>
+              <tr><td>Более 2 000 м²</td><td>Индивидуально</td></tr>
+            </tbody></table></div>
+            <div class="price-note">Стоимость дополнительных ракурсов, новых зон и существенной переработки согласованного проекта рассчитывается отдельно.</div>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="price-cover"><img src="assets/pricing/playground.webp" alt="Отдельный большой игровой комплекс"><span>05 / Play equipment render</span></div>
+          <div class="price-content">
+            <h3>Визуализация игровых комплексов</h3>
+            <p class="price-desc">Моделирование игрового комплекса с нуля, проработка материалов, освещения и окружения. Включено 5 финальных ракурсов.</p>
+            <div class="price-table-wrap"><table class="price-table"><tbody>
+              <tr><td>Небольшой комплекс</td><td>от 15 000 ₽</td></tr>
+              <tr><td>Средний комплекс</td><td>от 25 000 ₽</td></tr>
+              <tr><td>Большой комплекс</td><td>от 40 000 ₽</td></tr>
+              <tr><td>Очень сложный комплекс</td><td>от 60 000 ₽</td></tr>
+            </tbody></table></div>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <div class="price-cover"><img src="assets/pricing/product.webp" alt="Предметная визуализация скамьи на белом фоне"><span>06 / Product rendering</span></div>
+          <div class="price-content">
+            <h3>Предметная 3D-визуализация на белом фоне</h3>
+            <p class="price-desc">Моделирование изделия с нуля, материалы, студийное освещение, чистый белый фон и базовая постобработка. Включён 1 финальный ракурс.</p>
+            <div class="price-table-wrap"><table class="price-table"><tbody>
+              <tr><td>Простое изделие</td><td>3 000 ₽</td></tr>
+              <tr><td>Средняя сложность</td><td>5 000 ₽</td></tr>
+              <tr><td>Сложное изделие</td><td>8 000 ₽</td></tr>
+              <tr><td>Крупный игровой комплекс</td><td>от 12 000 ₽</td></tr>
+              <tr><td>Дополнительный ракурс</td><td>1 500–3 000 ₽</td></tr>
+            </tbody></table></div>
+            <div class="price-note">Можно подготовить чистый белый фон для каталога или белую студию с мягкими контактными тенями.</div>
+          </div>
+        </article>
+
+        <article class="price-card price-wide">
+          <div class="price-content">
+            <h3>Правки и дополнительные изменения</h3>
+            <p class="price-desc">В стоимость визуализационного проекта включены 2 раунда корректировок в рамках первоначального технического задания.</p>
+            <div class="price-two">
+              <div>
+                <div class="price-subtitle">Дополнительные работы</div>
+                <div class="price-table-wrap"><table class="price-table"><tbody>
+                  <tr><td>Дополнительный раунд правок</td><td>2 000 ₽</td></tr>
+                  <tr><td>Замена цветов и материалов</td><td>от 1 000 ₽</td></tr>
+                  <tr><td>Изменение расположения оборудования</td><td>от 2 000 ₽</td></tr>
+                  <tr><td>Добавление новых объектов</td><td>от 2 000 ₽</td></tr>
+                  <tr><td>Изменение геометрии объектов</td><td>от 3 000 ₽</td></tr>
+                  <tr><td>Существенная переработка проекта</td><td>Индивидуально</td></tr>
+                </tbody></table></div>
+              </div>
+              <div>
+                <div class="price-subtitle">Как считаются правки</div>
+                <ul class="price-list">
+                  <li>Один раунд — единый список замечаний, переданный одновременно после просмотра промежуточного результата.</li>
+                  <li>Небольшие замечания можно объединить в один раунд.</li>
+                  <li>Изменение технического задания или утверждённой концепции оценивается отдельно.</li>
+                  <li>Новые помещения, игровые зоны, дополнительные варианты и существенная переработка согласованной геометрии не относятся к обычным правкам.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="price-note">Расчёт нагрузок и прочности, испытания, сертификация, срочность, выезды и дополнительные инженерные задачи не входят в базовую стоимость, если отдельно не согласованы.</div>
+          </div>
+        </article>
+      </div>
+      <div class="price-foot"><strong>Важно:</strong> прайс носит ознакомительный характер. Итоговая стоимость фиксируется после изучения задания и исходных материалов. Для инженерных проектов количество учитываемых деталей — это число уникальных изготовляемых позиций, а не общее количество экземпляров в сборке.</div>
+    </div>
+  </section>
+
   <section id="tools">
     <div class="wrap">
-      <div class="section-head"><div><div class="kicker">05 / Рабочая среда</div><h2>Инструменты</h2></div><p class="section-intro">Программы и технологии, с которыми работаю.</p></div>
+      <div class="section-head"><div><div class="kicker">06 / Рабочая среда</div><h2>Инструменты</h2></div><p class="section-intro">Программы и технологии, с которыми работаю.</p></div>
       <div class="skillgroups"><div class="skillgroup"><h4>САПР и конструирование</h4><div class="tools"><span class="tool"><img class="ticon" src="assets/Icon/solidworks.jpg" alt="" onerror="this.remove()">SolidWorks</span><span class="tool"><img class="ticon" src="assets/Icon/Autocad.jpg" alt="" onerror="this.remove()">AutoCAD</span><span class="tool"><img class="ticon" src="assets/Icon/Bazis.jpg" alt="" onerror="this.remove()">Базис-Мебельщик</span><span class="tool">КД и рабочие чертежи</span><span class="tool">Спецификации</span><span class="tool">Файлы для ЧПУ</span></div></div><div class="skillgroup"><h4>3D и визуализация</h4><div class="tools"><span class="tool">3ds Max</span><span class="tool">Corona Renderer</span><span class="tool">Blender</span><span class="tool"><img class="ticon" src="assets/Icon/SketchUp.png" alt="" onerror="this.remove()">SketchUp</span><span class="tool"><img class="ticon" src="assets/Icon/LayOut.ico" alt="" onerror="this.remove()">LayOut</span><span class="tool">Unreal Engine</span></div></div><div class="skillgroup"><h4>Графика и презентации</h4><div class="tools"><span class="tool"><img class="ticon" src="assets/Icon/Photo.png" alt="" onerror="this.remove()">Adobe Photoshop</span><span class="tool"><img class="ticon" src="assets/Icon/Corel.jpg" alt="" onerror="this.remove()">CorelDRAW</span><span class="tool">Adobe Premiere Pro</span><span class="tool">AI-инструменты для концептов</span></div></div><div class="skillgroup"><h4>Производство</h4><div class="tools"><span class="tool">Развёртки</span><span class="tool">Лазерная резка</span><span class="tool">Гибка металла</span><span class="tool">ЧПУ</span><span class="tool">Сопровождение изготовления</span><span class="tool">Нормативная документация</span></div></div></div>
     </div>
   </section>
 
   <section class="contact" id="contacts">
     <div class="wrap contact-grid">
-      <div><div class="kicker">06 / Контакты</div><h2>Есть задача?<br><em style="font-family:'Playfair Display',serif;color:var(--accent2);font-weight:500">Обсудим решение.</em></h2>
+      <div><div class="kicker">07 / Контакты</div><h2>Есть задача?<br><em style="font-family:'Playfair Display',serif;color:var(--accent2);font-weight:500">Обсудим решение.</em></h2>
         <p class="contact-copy">Открыт к проектным задачам, удалённому сотрудничеству и разработке индивидуальных изделий. Напишите кратко о задаче — обсудим объём работ и возможный формат взаимодействия.</p>
         <div class="actions" style="margin-top:0"><a class="btn btn-primary" href="mailto:shepa_1996@mail.ru">НАПИСАТЬ НА ПОЧТУ ↗</a><a class="btn btn-ghost" href="assets/resume.pdf" target="_blank" rel="noopener" download>СКАЧАТЬ РЕЗЮМЕ (PDF)</a></div>
       </div>
